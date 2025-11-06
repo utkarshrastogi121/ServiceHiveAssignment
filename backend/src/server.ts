@@ -15,7 +15,10 @@ const server = http.createServer(app);
 
 export const io = new SocketIOServer(server, {
   cors: {
-    origin: "https://service-hive-assignment-opal.vercel.app/",
+    origin: [
+      "https://service-hive-assignment-opal.vercel.app",
+      "http://localhost:5173",
+    ],
     methods: ["GET", "POST"],
     credentials: true,
   },

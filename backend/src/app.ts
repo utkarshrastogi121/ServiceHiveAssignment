@@ -11,8 +11,13 @@ import errorHandler from "./middlewares/error.middleware";
 const app = express();
 
 app.use(
-  cors({
-    origin: "https://service-hive-assignment-opal.vercel.app/",
+ cors({
+    origin: [
+      "https://service-hive-assignment-opal.vercel.app",
+      "http://localhost:5173",
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
 );
